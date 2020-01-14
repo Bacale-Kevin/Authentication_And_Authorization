@@ -3,6 +3,7 @@ const bodyparser = require("body-parser");
 const ProductRoutes = require("./routes/product");
 const CountryRoutes = require("./routes/country");
 const SuggestionRoutes = require('./routes/suggestion');
+const AuthRoutes = require('./routes/auth');
 const sequelize = require("./server");
 const app = express();
 app.use(bodyparser.json());
@@ -15,6 +16,7 @@ app.use(
 app.use(ProductRoutes);
 app.use(CountryRoutes);
 app.use('/suggestion',SuggestionRoutes);
+app.use('/auth', AuthRoutes);
 
 sequelize
   .sync()
